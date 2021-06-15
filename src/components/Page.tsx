@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 import createStyles from '../styles';
 
 const styles = createStyles({
@@ -33,7 +34,7 @@ const Page: FC<Props> = ({
         <>
             <header className={styles('header')}>
                 <div className={styles('content', 'row')}>
-                    <div>utils.sh</div>
+                    <NavLink to="/">utils.sh</NavLink>
                     <div>A bunch of stuff that may, or may not, be useful to developers</div>
                 </div>
             </header>
