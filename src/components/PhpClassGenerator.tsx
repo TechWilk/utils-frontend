@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useReducer, useState } from 'react';
+import React, { FC, useCallback, useEffect, useReducer, useState } from 'react';
 import debounce from 'lodash.debounce';
 import Page from './Page';
 import Button from '../patterns/Button';
@@ -68,11 +68,9 @@ const PhpClassGenerator: FC = () => {
 
     const [state, dispatch] = useReducer(reducer, []);
 
-    const parseTextBlob = debounce((text: string) => {
-        console.log('inside debounce', text)
-
+    const parseTextBlob = useCallback(debounce((text: string) => {
         parse(text);
-    }, 2000);
+    }, 400), []);
 
     useEffect(() => {
         parseTextBlob(textBlob);
@@ -80,7 +78,7 @@ const PhpClassGenerator: FC = () => {
     }, [textBlob, parseTextBlob])
 
     const parse = (text: string) => {
-        fetch('http://0.0.0.0:8081/api/php/parse', {
+        fetch(`${process.env.REACT_APP_API_URL}/php/parse`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -101,7 +99,7 @@ const PhpClassGenerator: FC = () => {
     }
 
     const generateCode = () => {
-        fetch('http://0.0.0.0:8081/api/php/build', {
+        fetch(`${process.env.REACT_APP_API_URL}/php/build`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
