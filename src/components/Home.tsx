@@ -8,7 +8,17 @@ const PhpClassGenerator: FC = () => {
         <Page
             title="utils.sh"
         >
-            <Link to="/php/class/generate">PHP Setter/Getter Generator</Link>
+            <ul>
+                <li>
+                    <Link to="/php/class/generate">PHP Setter/Getter Generator</Link>
+                </li>
+                <li>
+                    <Link to="/qrcode/website">QR Code Generator for websites</Link>
+                </li>
+                <li>
+                    <Link to="/qrcode/wifi">QR Code Generator for WiFi</Link>
+                </li>
+            </ul>
         </Page>
     );
 }

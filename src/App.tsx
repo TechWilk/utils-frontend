@@ -9,6 +9,8 @@ import {
 import PhpClassGenerator from './components/PhpClassGenerator';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
+import QRCodeWebsite from './components/QRCodeWebsite';
+import QRCodeWiFi from './components/QRCodeWiFi';
 
 function App() {
   return (
@@ -17,6 +19,14 @@ function App() {
         <Route 
           path='/php/class/generate' 
           element={<PhpClassGenerator />}
+        />
+        <Route 
+          path='/qrcode/website' 
+          element={<QRCodeWebsite />}
+        />
+        <Route 
+          path='/qrcode/wifi' 
+          element={<QRCodeWiFi />}
         />
         <Route 
           path='/' 
